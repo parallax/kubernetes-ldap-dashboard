@@ -1,0 +1,10 @@
+FROM httpd:alpine
+
+RUN apk add --no-cache ca-certificates openssl
+
+ADD /k8s/conf/apache/httpd.conf /usr/local/apache2/conf/httpd.conf
+
+ADD /k8s/conf/apache/httpd-vhosts.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf
+
+#Config test
+#RUN /usr/local/apache2/bin/httpd -t

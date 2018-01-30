@@ -1,0 +1,48 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: 'k8s-dashboard-ldap-{ENVIRONMENT}'
+spec:
+  revisionHistoryLimit: 1
+  minReadySeconds: 5
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: 'k8s-dashboard-ldap-{ENVIRONMENT}'
+    spec:
+      containers:
+        - name: 'apache'
+          image: apache
+          ports:
+            - name: apache
+              containerPort: 80
+          resources:
+            requests:
+              memory: 20Mi
+              cpu: 10m
+            limits:
+              memory: 80Mi
+              cpu: 100m
+          #livenessProbe:
+          #  httpGet:
+          #    path: /
+          #    port: apache
+          #  initialDelaySeconds: 120
+          #  periodSeconds: 10
+          #  timeoutSeconds: 5
+          #readinessProbe:
+          #  httpGet:
+          #    path: /
+          #    port: apache
+          #  initialDelaySeconds: 120
+          #  periodSeconds: 10
+          #  timeoutSeconds: 5
+          env:
+            - name: ENVIRONMENT
+              value: "{ENVIRONMENT}"

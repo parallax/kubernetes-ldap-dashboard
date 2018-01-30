@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: 'k8s-dashboard-ldap-{ENVIRONMENT}'
+    primary: 'true'
+  name: 'apache'
+  domains:
+    - 'dashboard.prlx.io'
+spec:
+  ports:
+  - name: apache
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: 'k8s-dashboard-ldap-{ENVIRONMENT}'
+  sessionAffinity: None
+  type: NodePort
+---

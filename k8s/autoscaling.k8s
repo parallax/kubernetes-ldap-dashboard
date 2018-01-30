@@ -1,0 +1,15 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: 'k8s-dashboard-ldap'
+  namespace: default
+spec:
+  maxReplicas: 2
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: 'k8s-dashboard-ldap'
+  targetCPUUtilizationPercentage: 60
+
+---
