@@ -6,7 +6,7 @@ metadata:
     primary: 'true'
   name: 'apache'
   domains:
-    - 'dashboard.prlx.io'
+    - 'dashboard.replaceme.com'
 spec:
   ports:
   - name: apache
