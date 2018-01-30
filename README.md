@@ -10,4 +10,4 @@
 |LDAP_BIND_PASSWORD|The LDAP bind password|
 |LDAP_REQUIRED_GROUP|The full DN of an LDAP group that someone needs to be a member of to access the dashboard|
 |LDAP_URL|LDAP URI. Example: ldaps://ldap.jumpcloud.com:636/ou=Users,o=123456789,dc=jumpcloud,dc=com|
-|PROXY_URL|http://kubernetes-dashboard.kube-system:443/ - probably this unless you've changed it to something else|
+|PROXY_URL|https://kubernetes-dashboard.kube-system:443/ - probably this unless you've changed it to something else|
